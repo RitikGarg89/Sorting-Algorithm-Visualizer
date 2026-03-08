@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlgoVisualizer | Interactive Sorting Algorithm Visualizer</title>
+    <meta name="description"
+        content="An interactive, premium sorting algorithm visualizer. Explore Bubble Sort, Selection Sort, Quick Sort, and more with real-time complexity analysis and code snippets.">
+    <meta name="keywords"
+        content="sorting algorithms, DSA, data structures, algorithms visualizer, bubble sort, quick sort, merge sort, educational tool">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-animation"></div>
+
+    <div class="glass-container">
+        <header>
+            <h1 class="glow-text">AlgoVisualizer</h1>
+            <div class="controls-grid">
+                <div class="control-group">
+                    <label>Algorithm</label>
+                    <div class="custom-select" id="custom-algo-select">
+                        <div class="select-trigger">
+                            <span id="selected-algo-text">Bubble Sort</span>
+                            <span class="arrow"></span>
+                        </div>
+                        <div class="select-options">
+                            <div class="option selected" data-value="bubble">Bubble Sort</div>
+                            <div class="option" data-value="selection">Selection Sort</div>
+                            <div class="option" data-value="insertion">Insertion Sort</div>
+                            <div class="option" data-value="quick">Quick Sort</div>
+                            <div class="option" data-value="merge">Merge Sort</div>
+                            <div class="option" data-value="heap">Heap Sort</div>
+                            <div class="option" data-value="shell">Shell Sort</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="size">Array Size</label>
+                    <input type="range" id="size" min="5" max="30" value="15">
+                </div>
+
+                <div class="control-group">
+                    <label for="speed">Sorting Speed</label>
+                    <input type="range" id="speed" min="100" max="1000" step="100" value="500">
+                </div>
+
+                <div class="button-group">
+                    <button id="generate" class="secondary-btn">New Array</button>
+                    <button id="view-code" class="secondary-btn">View Code</button>
+                    <button id="start" class="primary-btn">Start Sorting</button>
+                </div>
+            </div>
+        </header>
+
+        <main id="visualizer-container">
+            <!-- Bars will be generated here -->
+        </main>
+
+        <footer class="stats-bar">
+            <div class="stats-top">
+                <div id="complexity-info">
+                    <span>Time Complexity: <strong id="time-complexity">-</strong></span>
+                    <span>Space Complexity: <strong id="space-complexity">-</strong></span>
+                </div>
+                <div id="status-text">Ready to visualize</div>
+            </div>
+            <div class="explanation-card">
+                <span class="info-icon">💡</span>
+                <p id="step-text">New array generated. Choose an algorithm and click <strong>Start Sorting</strong>.</p>
+                <button id="show-summary" class="secondary-btn summary-btn-inline" disabled>Show Summary</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Code Modal -->
+    <div id="code-modal" class="modal">
+        <div class="modal-content glass-container">
+            <div class="modal-header">
+                <h2 id="modal-title">Algorithm Code</h2>
+                <button id="close-modal" class="close-btn">&times;</button>
+            </div>
+            <div class="language-selector">
+                <button class="lang-tab active" data-lang="js">JavaScript</button>
+                <button class="lang-tab" data-lang="python">Python</button>
+                <button class="lang-tab" data-lang="cpp">C++</button>
+                <button class="lang-tab" data-lang="c">C</button>
+                <button class="lang-tab" data-lang="java">Java</button>
+            </div>
+            <div class="modal-body">
+                <pre><code id="code-display"></code></pre>
+            </div>
+        </div>
+    </div>
+
+    <div id="summary-modal" class="modal">
+        <div class="modal-content summary-content">
+            <div class="modal-header">
+                <h2 id="summary-title">Sorting Summary</h2>
+                <span class="close-btn" id="close-summary">&times;</span>
+            </div>
+            <div class="modal-body summary-body">
+                <div id="summary-list" class="summary-list">
+                    <!-- Steps will be injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
